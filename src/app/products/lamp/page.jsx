@@ -1,7 +1,7 @@
 // pages/lamp.js
 'use client';
 
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState, useContext, useMemo } from 'react'
 import { useDispatch } from 'react-redux';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -47,7 +47,7 @@ const LampPage = React.memo(() => {
 
   useEffect(()=> {
     setTotal(quantity * basePrice)
-  }, [quantity, basePrice]);
+  }, [quantity]);
 
   useEffect(()=> {
     if (openModal) {
@@ -80,9 +80,9 @@ const LampPage = React.memo(() => {
       transition= {{ duration: 2 }}
       className='flex flex-col items-center justify-center gap-6 md:flex-1 md:flex md:py-24'>
       <h1 className='head_text uppercase'>{selectedLamp.title}</h1>
-      <span className='body_text p-6'>
-      Hand-sculpted with devotion, the round ceramic lamp is more than light – it's a testament to crafting nature's embrace. Each curve and contour, carefully formed, holds the echo of an artisan's passion, bringing the tranquil beauty of the outdoors full circle into your living space.
-      </span>
+      <p className='body_text p-6'>
+      Hand-sculpted with devotion, the round ceramic lamp is more than light, it iss a testament to crafting embrace of nature. Each curve and contour, carefully formed, holds the echo of passion of artisan , bringing the tranquil beauty of the outdoors full circle into your living space.
+      </p>
 
       <div className='flex items-center gap-6'>
       {lampData.map((lamp) => (
@@ -142,4 +142,6 @@ const LampPage = React.memo(() => {
   )
 });
 
-export default LampPage
+LampPage.displayName = 'LampPage';
+
+export default LampPage;

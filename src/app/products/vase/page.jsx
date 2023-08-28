@@ -1,7 +1,7 @@
 // pages/vase.js
 'use client';
 
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState, useContext, useMemo } from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
@@ -48,7 +48,7 @@ const Vase = React.memo(() => {
 
   useEffect(()=> {
     setTotal(quantity * basePrice)
-  }, [quantity, basePrice]);
+  }, [quantity]);
 
   useEffect(()=> {
     if (openModal) {
@@ -82,9 +82,9 @@ const Vase = React.memo(() => {
       transition= {{ duration: 2 }}
       className='flex flex-col items-center justify-center gap-6 md:flex-1 md:flex md:py-24'>
       <h1 className='head_text uppercase'>{selectedVase.title}</h1>
-      <span className='body_text p-6'>
-        From the hands of an artisan flows not just clay, but a symphony of passion and nature's whispers, shaping a ceramic vase that embodies the essence of creation. In its curves and contours, one can trace the artist's love for the world around us, a vessel born from earth yet molded by the heart.
-      </span>
+      <p className='body_text p-6'>
+      From the hands of an artisan flows not just clay, but a symphony of passion andwhispers of nature , shaping a ceramic vase that embodies the essence of creation. In its curves and contours, one can trace the love of artist for the world around us, a vessel born from earth yet molded by the heart.
+      </p>
 
       <div className='flex items-center gap-6'>
       {vaseData.map((vas) => (
@@ -143,5 +143,7 @@ const Vase = React.memo(() => {
     </div>
   )
 });
+
+Vase.displayName = 'Vase';
 
 export default Vase

@@ -1,7 +1,7 @@
 // pages/cup.js
 'use client';
 
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -49,7 +49,7 @@ const CupPage = React.memo(() => {
 
   useEffect(()=> {
     setTotal(quantity * basePrice)
-  }, [quantity, basePrice]);
+  }, [quantity]);
 
   useEffect(()=> {
     if (openModal) {
@@ -83,9 +83,9 @@ const CupPage = React.memo(() => {
 
       className='flex flex-col items-center justify-center gap-6 md:flex-1 md:flex md:py-24'>
       <h1 className='head_text uppercase'>{selectedCup.title}</h1>
-      <span className='body_text p-6'>
-      Crafted with hands that echo the touch of nature's elegance, each hand-shaped ceramic cup encapsulates a labor of passion, transforming raw earth into a vessel that cradles warmth. In the dance between artisan and clay, the cup becomes an ode to the artistry of the natural world.
-      </span>
+      <p className='body_text p-6'>
+      Crafted with hands that echo the touch of elegance of nature , each hand-shaped ceramic cup encapsulates a labor of passion, transforming raw earth into a vessel that cradles warmth. In the dance between artisan and clay, the cup becomes an ode to the artistry of the natural world.
+      </p>
 
       <div className='flex items-center gap-6'>
       {cupData.map((cup) => (
@@ -149,5 +149,7 @@ const CupPage = React.memo(() => {
     </div>
   );
 });
+
+CupPage.displayName = 'CupPage';
 
 export default CupPage;

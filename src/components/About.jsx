@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image';
 
 const About = () => {
 
@@ -15,7 +16,7 @@ const About = () => {
         whileInView={{opacity:1, x:0}}
         transition={transition}
       >
-        <img src='/about.png' alt='about' fill className='object-cover'/>
+        <Image src='/about.png' alt='about' fill className='object-cover'/>
       </motion.div>
       {/* text container */}
       <motion.div

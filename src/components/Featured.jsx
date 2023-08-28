@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -58,5 +58,7 @@ const Featured = React.memo(() => {
     </div>
   );
 });
+
+Featured.displayName = 'Featured';
 
 export default Featured;
